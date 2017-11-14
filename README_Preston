@@ -1,0 +1,16 @@
+README
+
+Things to note:
+Time, Date, and Location classes may not synch up with other peoples choices of libraries for them
+I chose the Java.sql.Time for Time and Java.util.Date for date, and android.location.Location
+libraries for each of them.
+
+It seems like Date actually has the Time built into it, but wanted to keep Time object just in case
+we needed it for another reason.
+
+Location implementation has waited to see if Location was implemented elsewhere (particularly Ayas
+portion) so as to make sure that everything matches
+
+https://wwww.stackoverflow.come/questions/1513485/how-do-i-get-the-current-gps-location-programmatically-in-android
+^ a good way to get the current location and to have it update when someome moves - you can pretty
+much just copy the code or at least the concepts used there
