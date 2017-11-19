@@ -14,3 +14,12 @@ portion) so as to make sure that everything matches
 https://wwww.stackoverflow.come/questions/1513485/how-do-i-get-the-current-gps-location-programmatically-in-android
 ^ a good way to get the current location and to have it update when someome moves - you can pretty
 much just copy the code or at least the concepts used there
+
+
+
+VERSION 2.0
+Server, ServerThread, Client, Query, have all been implemented. As I talked to Jack about, I did not implement any of the stuff regarding
+the generation of the mySQL query itself, simply handled it assuming that it more or less worked.
+
+Also there is a good chance that we should be implmeenting a response class as well so that the Client knows what it is looking at so that it can
+deal with the objects correctly

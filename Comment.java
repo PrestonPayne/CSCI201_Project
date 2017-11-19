@@ -2,6 +2,7 @@ package com.example.myfirstattempt;
 
 import android.location.Location;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,16 +11,18 @@ import java.util.Date;
  * Created by Preston on 11/13/2017.
  */
 
-public class Comment {
+public class Comment implements Serializable {
+
+    private static final long serialVerisionID = 1;
 
     private String comment;
     private Event myEvent;
-    private RegisteredUser myCreator;
+    private String myCreator;
     private Date myDate;
     private Time myTime;
     private Location myLocation;
 
-    public Comment(String text, Event event, RegisteredUser author){
+    public Comment(String text, Event event, String author){
         comment = text;
         myEvent = event;
         myCreator = author;
@@ -42,11 +45,11 @@ public class Comment {
         this.myEvent = myEvent;
     }
 
-    public RegisteredUser getMyCreator() {
+    public String getMyCreator() {
         return myCreator;
     }
 
-    public void setMyCreator(RegisteredUser myCreator) {
+    public void setMyCreator(String myCreator) {
         this.myCreator = myCreator;
     }
 

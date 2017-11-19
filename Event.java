@@ -2,19 +2,20 @@ package com.example.myfirstattempt;
 
 import android.location.Location;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Vector;
 
 /**
  * Created by Preston on 11/13/2017.
  */
 
-public class Event {
+public class Event implements Serializable {
 
-
-
+    private static final long serialVerisionID = 1;
     private Location myLocation;
     private Time myTime;
     private Date myDate;
@@ -22,14 +23,14 @@ public class Event {
     private boolean isPast;
     private int accessibility;
     //Acessibility Legend: 1 = Public 2 = Friends 3 = Only participants
-    private ArrayList<RegisteredUser> myMembers;
+    private Vector<String> myMembers;
     private RegisteredUser myCreator;
     private ArrayList<Comment> myComments;
 
     public Event(RegisteredUser creator){
         myCreator = creator;
         myComments = new ArrayList<Comment>();
-        myMembers = new ArrayList<RegisteredUser>();
+        myMembers = new Vector<String>();
         Date myDate = Calendar.getInstance().getTime();
 
     }
@@ -37,36 +38,33 @@ public class Event {
     public Event(RegisteredUser creator, Date date){
         myCreator = creator;
         myComments = new ArrayList<Comment>();
-        myMembers = new ArrayList<RegisteredUser>();
+        myMembers = new Vector<String>();
         Date myDate = date;
     }
 
 
-    public ArrayList<RegisteredUser> getMembers(){
+    public Vector<String> getMembers(){
         return myMembers;
     }
 
-    public void addMember(RegisteredUser u){
-        myMembers.add(u);
+    public RegisteredUser getUserObjectFromName(String name){
+        return null;
     }
 
-    public void removeMember(RegisteredUser u){
-        myMembers.remove(u);
-    }
 
     public void addMember(String name){
-        //TODO Hook up to database, find member by name, add to list
+        myMembers.add(name);
     }
 
     public void removeMember(String name){
-        for(RegisteredUser current : myMembers){
-            if(current.getName().equals(name)){
+        for(String current : myMembers){
+            if(current.equals(name)){
                 myMembers.remove(current);
             }
         }
     }
 
-    public void addComment(String text, RegisteredUser author){
+    public void addComment(String text, String author){
         myComments.add(new Comment(text, this, author));
     }
 
@@ -92,6 +90,13 @@ public class Event {
 
     public java.util.Date getDate() {
         return myDate;
+    }
+
+    public String getDateString(){
+        String month =  String.valueOf(myDate.getMonth());
+        String day = String.valueOf(myDate.getDate());
+        String time = String.valueOf(myDate.getHours());
+        return month + " " + day+ ", " + time;
     }
 
     public void setDate(java.sql.Date date) {

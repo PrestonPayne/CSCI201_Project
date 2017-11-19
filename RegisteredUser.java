@@ -1,21 +1,68 @@
 package com.example.myfirstattempt;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Preston on 11/13/2017.
  */
 
-public class RegisteredUser extends User{
-
+public class RegisteredUser extends User implements Serializable{
+    private static final long serialVerisionID = 1;
+    private String myName;
     private int myAge;
     private int myUserID;
-    private boolean myGender;
-    private String myName;
     private String myEmail;
+    private boolean myGender;
     private String myPassword;
     private ArrayList<RegisteredUser> myFriends = new ArrayList<RegisteredUser>();
     private ArrayList<Event> myEvents = new ArrayList<Event>();
+
+
+    public RegisteredUser(String name, int age, int userID, String email, boolean gender){
+        myName = name;
+        myAge = age;
+        myUserID = userID;
+        myEmail = email;
+    }
+
+    public RegisteredUser(String name, int age, int userID, String email, boolean gender, String password){
+        myName = name;
+        myAge = age;
+        myUserID = userID;
+        myEmail = email;
+        myGender = gender;
+    }
+
+    public RegisteredUser(String name, int age, int userID, String email, boolean gender, ArrayList<Event> events){
+        myName = name;
+        myAge = age;
+        myUserID = userID;
+        myEmail = email;
+        myGender = gender;
+        myEvents = events;
+    }
+
+    public RegisteredUser(String name, int age, int userID, String email, boolean gender, String password, ArrayList<Event> events){
+        myName = name;
+        myAge = age;
+        myUserID = userID;
+        myEmail = email;
+        myGender = gender;
+        myPassword = password;
+        myEvents = events;
+    }
+
+    public RegisteredUser(String name, int age, int userID, String email, boolean gender, String password, ArrayList<RegisteredUser> friends, ArrayList<Event> events){
+        myName = name;
+        myAge = age;
+        myUserID = userID;
+        myEmail = email;
+        myGender = gender;
+        myPassword = password;
+        myFriends = friends;
+        myEvents = events;
+    }
 
 
     public void addEvent(Event event){

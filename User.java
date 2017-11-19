@@ -1,15 +1,17 @@
 package com.example.myfirstattempt;
 
 import android.location.Location;
+import android.location.LocationManager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by Preston on 11/13/2017.
+ * Created by Prest`on on 11/13/2017.
  */
 
-public class User {
-
+public class User implements Serializable{
+    private static final long serialVerisionID = 1;
     protected Location myLocation;
 
     public User(){
