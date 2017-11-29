@@ -21,3 +21,5 @@ Please try to make the app look better if you have time.
 
 Look at SampleData.rar if you want to have some sample data to work with. Import the corresponding csv files to your table in MySQL 
 workbench after running createDB.sql
+
+Select API 26 and hardware GLES 2.0 when using emulators
