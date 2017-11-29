@@ -15,3 +15,5 @@ Filter for user searching (age, gender, location, etc.)
 Realtime location update in google maps
 
 Realtime event/event member notifications
+
+Please try to make the app look better if you have time.
